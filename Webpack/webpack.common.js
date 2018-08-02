@@ -34,6 +34,16 @@ const config = {
               collapseWhitespace: true,
               interpolate: true
             }
+          },
+          {
+            loader: 'markup-inline-loader',
+            options: {
+              svgo: {
+                plugins: [
+                  { removeTitle: true }
+                ]
+              }
+            }
           }
         ]
       },
@@ -86,11 +96,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
-      hash: true,
-      svgoConfig: {
-        removeTitle: true,
-        removeViewBox: true
-      }
+      hash: true
     }),
     new MiniCssExtractPlugin({ filename: './css/[name].bundle.[contenthash].css', }),
     new WebpackMd5Hash()

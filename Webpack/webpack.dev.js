@@ -1,12 +1,10 @@
-const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin')
 const webpack = require('webpack')
 
 const config = {
   mode: 'development',
   plugins: [
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackInlineSVGPlugin({ runPreEmit: true, customPath: 'app/assets/svgs/', customTag: 'embed' })
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     // stats: 'errors-only',
