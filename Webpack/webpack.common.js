@@ -1,6 +1,5 @@
 const webpackPaths = require('./webpack.paths')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const WebpackMd5Hash = require('webpack-md5-hash')
 
@@ -29,10 +28,11 @@ const config = {
           {
             loader: 'html-loader',
             options: {
-              attrs: ['img:src', 'embed:src', 'object:data'],
+              attrs: ['img:src', 'embed:src', 'object:data', 'use:xlinkHref'],
               minimize: true,
               removeComments: false,
-              collapseWhitespace: true
+              collapseWhitespace: true,
+              interpolate: true
             }
           }
         ]
@@ -45,7 +45,10 @@ const config = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 1 }
+            options: {
+              importLoaders: 1,
+              sourceMap: true
+            }
           },
           'postcss-loader',
           'sass-loader'
@@ -89,7 +92,6 @@ const config = {
         removeViewBox: true
       }
     }),
-    new HtmlWebpackInlineSVGPlugin(),
     new MiniCssExtractPlugin({ filename: './css/[name].bundle.[contenthash].css', }),
     new WebpackMd5Hash()
   ]
