@@ -1,10 +1,12 @@
 const webpack = require("webpack")
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 const config = {
   mode: "development",
   plugins: [
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({ openAnalyzer: false })
   ],
   devServer: {
     // stats: "errors-only",

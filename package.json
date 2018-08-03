@@ -3,8 +3,8 @@
   "version": "v0.0.1-beta",
   "description": "",
   "main": "index.js",
-  "config" : {
-    "app" : "spa"
+  "config": {
+    "app": "spa"
   },
   "scripts": {
     "setup:spa": "npm config set bob:app spa",
@@ -40,6 +40,7 @@
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.2",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
     "webpack-md5-hash": "0.0.6",
