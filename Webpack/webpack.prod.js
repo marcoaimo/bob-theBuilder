@@ -12,6 +12,17 @@ const config = {
     new CleanWebpackPlugin(["public"])
   ],
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all",
+          minChunks: 2
+        }
+      }
+    },
     minimizer: [
       new UglifyJSPlugin({ sourceMap: true })
     ]
