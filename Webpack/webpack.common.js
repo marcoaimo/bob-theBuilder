@@ -1,16 +1,10 @@
-const webpackPaths = require('./webpack.paths')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpackPaths = require("./webpack.paths")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const WebpackMd5Hash = require('webpack-md5-hash')
+const WebpackMd5Hash = require("webpack-md5-hash")
 
 const config = {
-  mode: 'none',
+  mode: "none",
   context: webpackPaths.entryPath,
-  entry: {
-    // removing 'app' directory from entry point,
-    // since 'context' is taking care of that
-    app: './app.js'
-  },
   module: {
     rules: [
       // babel-loader
@@ -26,9 +20,9 @@ const config = {
         test: /\.(x)?html$/,
         use: [
           {
-            loader: 'html-loader',
+            loader: "html-loader",
             options: {
-              attrs: ['img:src', 'embed:src', 'object:data', 'use:xlinkHref'],
+              attrs: ["img:src", "embed:src", "object:data", "use:xlinkHref"],
               minimize: true,
               removeComments: false,
               collapseWhitespace: true,
@@ -36,7 +30,7 @@ const config = {
             }
           },
           {
-            loader: 'markup-inline-loader',
+            loader: "markup-inline-loader",
             options: {
               svgo: {
                 plugins: [
@@ -51,17 +45,17 @@ const config = {
       {
         test: /\.(s)?css$/,
         use: [
-          'style-loader',
+          "style-loader",
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               importLoaders: 1,
               sourceMap: true
             }
           },
-          'postcss-loader',
-          'sass-loader'
+          "postcss-loader",
+          "sass-loader"
         ]
       },
       // media file-loader
@@ -69,10 +63,10 @@ const config = {
         test: /\.(jpg|png|gif|svg)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: './assets/media/'
+              name: "[name].[ext]",
+              outputPath: "./assets/media/"
             }
           }
         ]
@@ -82,11 +76,11 @@ const config = {
         test: /\.(woff(2)?|eot|ttf|otf)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: './assets/fonts/',
-              publicPath: '/assets/fonts'
+              name: "[name].[ext]",
+              outputPath: "./assets/fonts/",
+              publicPath: "/assets/fonts"
             }
           }
         ]
@@ -94,11 +88,7 @@ const config = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-      hash: true
-    }),
-    new MiniCssExtractPlugin({ filename: './css/[name].bundle.[contenthash].css', }),
+    new MiniCssExtractPlugin({ filename: "./css/[name].bundle.[contenthash].css", }),
     new WebpackMd5Hash()
   ]
 }

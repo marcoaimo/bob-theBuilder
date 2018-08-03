@@ -3,7 +3,12 @@
   "version": "v0.0.1-beta",
   "description": "",
   "main": "index.js",
+  "config" : {
+    "app" : "spa"
+  },
   "scripts": {
+    "setup:spa": "npm config set bob:app spa",
+    "setup:mpa": "npm config set bob:app mpa",
     "dev": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server",
     "watch": "cross-env NODE_ENV=development ./node_modules/.bin/webpack --watch",
     "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack",
