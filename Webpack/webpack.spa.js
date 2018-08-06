@@ -11,7 +11,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: "index.html",
       filename: "./index.html",
-      chunks: ["app"],
+      chunks: ["app", "vendor"],
       hash: true
     })
   ]

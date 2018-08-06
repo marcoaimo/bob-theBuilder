@@ -35,3 +35,8 @@ $RECYCLE.BIN/
 # App Dependencies
 node_modules
 bower_components
+
+# Builds
+public
+dist
+build

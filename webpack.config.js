@@ -11,4 +11,4 @@ const modeConfig = require(`./Webpack/webpack.${appMode}.js`)
 const common = require("./Webpack/webpack.common")
 const envConfig = require(`./Webpack/webpack.${env}.js`)
 
-module.exports = webpackMerge(modeConfig, common, envConfig)
+module.exports = webpackMerge(envConfig, modeConfig, common)

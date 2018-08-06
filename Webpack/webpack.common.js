@@ -88,7 +88,7 @@ const config = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "./css/[name].bundle.[contenthash].css", }),
+    new MiniCssExtractPlugin({ filename: "./css/[name].bundle.css", }),
     new WebpackMd5Hash()
   ]
 }

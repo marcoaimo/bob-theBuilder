@@ -24,21 +24,21 @@ const config = {
     new HtmlWebpackPlugin({
       template: "index.html",
       filename: "./index.html",
-      chunks: ["app"],
+      chunks: ["app", "commons"],
       hash: true
     }),
     // desktop app
     new HtmlWebpackPlugin({
       template: "desktop/index.html",
       filename: "./desktop/index.html",
-      chunks: ["desktop"],
+      chunks: ["desktop", "commons"],
       hash: true
     }),
     // mobile app
     new HtmlWebpackPlugin({
       template: "mobile/index.html",
       filename: "./mobile/index.html",
-      chunks: ["mobile"],
+      chunks: ["mobile", "commons"],
       hash: true
     })
   ]
